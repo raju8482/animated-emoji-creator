@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,11 +13,11 @@
             --tertiary-color: #ff9800;
             --tertiary-hover: #e68a00;
         }
-
+        
         * {
             box-sizing: border-box;
         }
-
+        
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             max-width: 1000px;
@@ -28,29 +27,29 @@
             color: #333;
             line-height: 1.6;
         }
-
+        
         h1 {
             color: #ff6b6b;
             text-align: center;
             margin-bottom: 30px;
             font-size: clamp(1.8rem, 4vw, 2.5rem);
         }
-
+        
         .container {
             background-color: white;
             padding: 25px;
             border-radius: 15px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
             margin-bottom: 30px;
         }
-
+        
         .workspace {
             display: flex;
             flex-wrap: wrap;
             gap: 25px;
             margin-bottom: 25px;
         }
-
+        
         .preview-area {
             flex: 1;
             min-width: 280px;
@@ -63,16 +62,16 @@
             flex-direction: column;
             justify-content: space-between;
         }
-
+        
         .controls {
             flex: 1;
             min-width: 280px;
         }
-
+        
         .control-group {
             margin-bottom: 20px;
         }
-
+        
         label {
             display: block;
             margin-bottom: 8px;
@@ -80,10 +79,8 @@
             color: #555;
             font-size: clamp(0.9rem, 2vw, 1rem);
         }
-
-        select,
-        input,
-        textarea {
+        
+        select, input, textarea {
             width: 100%;
             padding: 12px;
             border: 1px solid #ccc;
@@ -91,14 +88,12 @@
             font-size: clamp(0.9rem, 2vw, 1rem);
             transition: border 0.3s;
         }
-
-        select:focus,
-        input:focus,
-        textarea:focus {
+        
+        select:focus, input:focus, textarea:focus {
             border-color: var(--primary-color);
             outline: none;
         }
-
+        
         input[type="range"] {
             padding: 0;
             height: 8px;
@@ -106,7 +101,7 @@
             background: #ddd;
             border-radius: 4px;
         }
-
+        
         input[type="range"]::-webkit-slider-thumb {
             -webkit-appearance: none;
             width: 20px;
@@ -115,7 +110,7 @@
             border-radius: 50%;
             cursor: pointer;
         }
-
+        
         button {
             background-color: var(--primary-color);
             color: white;
@@ -129,33 +124,33 @@
             transition: all 0.3s;
             font-weight: 600;
         }
-
+        
         button:hover:not(:disabled) {
             filter: brightness(1.1);
             transform: translateY(-2px);
         }
-
+        
         button:disabled {
             opacity: 0.7;
             cursor: not-allowed;
         }
-
+        
         .download-btn {
             background-color: var(--secondary-color);
         }
-
+        
         .download-btn:hover:not(:disabled) {
             background-color: var(--secondary-hover);
         }
-
+        
         .share-btn {
             background-color: var(--tertiary-color);
         }
-
+        
         .share-btn:hover:not(:disabled) {
             background-color: var(--tertiary-hover);
         }
-
+        
         #emojiPreview {
             font-size: clamp(60px, 15vw, 120px);
             margin: 20px 0;
@@ -165,7 +160,7 @@
             align-items: center;
             justify-content: center;
         }
-
+        
         #animationPreview {
             width: 100%;
             min-height: 200px;
@@ -176,34 +171,34 @@
             justify-content: center;
             position: relative;
         }
-
+        
         .color-picker {
             display: flex;
             align-items: center;
             gap: 12px;
             margin-top: 8px;
         }
-
+        
         .color-picker input[type="color"] {
             width: 50px;
             height: 35px;
             padding: 2px;
             border: 1px solid #ccc;
         }
-
+        
         .color-picker input[type="checkbox"] {
             width: auto;
             margin-left: 10px;
             transform: scale(1.3);
         }
-
+        
         .emoji-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(40px, 1fr));
             gap: 10px;
             margin-top: 15px;
         }
-
+        
         .emoji-option {
             font-size: clamp(20px, 3vw, 24px);
             padding: 8px;
@@ -213,234 +208,145 @@
             background-color: #f0f0f0;
             transition: all 0.2s;
         }
-
+        
         .emoji-option:hover {
             background-color: #ddd;
             transform: scale(1.1);
         }
-
+        
         .emoji-option.selected {
             background-color: var(--primary-color);
             color: white;
         }
-
+        
         .output-options {
             display: flex;
             gap: 12px;
             margin-top: 20px;
         }
-
+        
         .output-options button {
             flex: 1;
             padding: 12px;
         }
-
+        
         #previewText {
             margin-top: 15px;
             word-break: break-word;
             max-width: 100%;
         }
-
+        
         .loading {
             position: relative;
             pointer-events: none;
         }
-
+        
         .loading::after {
             content: "";
             position: absolute;
             top: 50%;
             left: 50%;
-            transform: translate(-50%, -50%);
             width: 20px;
             height: 20px;
-            border: 3px solid rgba(255, 255, 255, 0.3);
+            border: 3px solid rgba(255,255,255,0.3);
             border-radius: 50%;
             border-top-color: white;
             animation: spin 1s ease-in-out infinite;
+            transform-origin: center center;
         }
-
+        
         @keyframes spin {
-            to {
-                transform: translate(-50%, -50%) rotate(360deg);
-            }
+            to { transform: rotate(360deg); }
         }
-
+        
         @keyframes bounce {
-
-            0%,
-            100% {
-                transform: translateY(0);
-            }
-
-            50% {
-                transform: translateY(-20px);
-            }
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
         }
-
+        
         @keyframes spin-emoji {
-            0% {
-                transform: rotate(0deg);
-            }
-
-            100% {
-                transform: rotate(360deg);
-            }
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
         }
-
+        
         @keyframes pulse {
-
-            0%,
-            100% {
-                transform: scale(1);
-            }
-
-            50% {
-                transform: scale(1.2);
-            }
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.2); }
         }
-
+        
         @keyframes shake {
-
-            0%,
-            100% {
-                transform: translateX(0);
-            }
-
-            20%,
-            60% {
-                transform: translateX(-10px);
-            }
-
-            40%,
-            80% {
-                transform: translateX(10px);
-            }
+            0%, 100% { transform: translateX(0); }
+            20%, 60% { transform: translateX(-10px); }
+            40%, 80% { transform: translateX(10px); }
         }
-
+        
         @keyframes float {
-
-            0%,
-            100% {
-                transform: translateY(0);
-            }
-
-            50% {
-                transform: translateY(-15px);
-            }
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
         }
-
+        
         @keyframes rainbow {
-            0% {
-                color: red;
-            }
-
-            14% {
-                color: orange;
-            }
-
-            28% {
-                color: yellow;
-            }
-
-            42% {
-                color: green;
-            }
-
-            57% {
-                color: blue;
-            }
-
-            71% {
-                color: indigo;
-            }
-
-            85% {
-                color: violet;
-            }
-
-            100% {
-                color: red;
-            }
+            0% { color: red; }
+            14% { color: orange; }
+            28% { color: yellow; }
+            42% { color: green; }
+            57% { color: blue; }
+            71% { color: indigo; }
+            85% { color: violet; }
+            100% { color: red; }
         }
-
+        
         @keyframes heartbeat {
-            0% {
-                transform: scale(1);
-            }
-
-            25% {
-                transform: scale(1.1);
-            }
-
-            50% {
-                transform: scale(1);
-            }
-
-            75% {
-                transform: scale(1.1);
-            }
-
-            100% {
-                transform: scale(1);
-            }
+            0% { transform: scale(1); }
+            25% { transform: scale(1.1); }
+            50% { transform: scale(1); }
+            75% { transform: scale(1.1); }
+            100% { transform: scale(1); }
         }
-
+        
         @keyframes wobble {
-
-            0%,
-            100% {
-                transform: rotate(0deg);
-            }
-
-            25% {
-                transform: rotate(5deg);
-            }
-
-            75% {
-                transform: rotate(-5deg);
-            }
+            0%, 100% { transform: rotate(0deg); }
+            25% { transform: rotate(5deg); }
+            75% { transform: rotate(-5deg); }
         }
-
+        
         @media (max-width: 768px) {
             .workspace {
                 flex-direction: column;
             }
-
-            .preview-area,
-            .controls {
+            
+            .preview-area, .controls {
                 min-width: 100%;
             }
-
+            
             .output-options {
                 flex-direction: column;
             }
-
+            
             .color-picker {
                 flex-wrap: wrap;
             }
         }
-
+        
         @media (max-width: 480px) {
             .container {
                 padding: 15px;
             }
-
+            
             .preview-area {
                 padding: 15px;
             }
-
+            
             button {
                 padding: 12px;
             }
         }
     </style>
 </head>
-
 <body>
     <div class="container">
         <h1>✨ Animated Emoji Creator</h1>
-
+        
         <div class="workspace">
             <div class="preview-area">
                 <div id="animationPreview">
@@ -452,16 +358,15 @@
                 </div>
                 <button id="shareBtn" class="share-btn">Share Animation</button>
             </div>
-
+            
             <div class="controls">
                 <div class="control-group">
                     <label for="emojiSelect">Choose Emoji:</label>
                     <input type="text" id="emojiInput" value="😊" maxlength="2">
                     <div class="emoji-grid" id="emojiGrid">
-                        <!-- Will be filled by JavaScript -->
-                    </div>
+                        </div>
                 </div>
-
+                
                 <div class="control-group">
                     <label for="animationType">Animation Type:</label>
                     <select id="animationType">
@@ -475,17 +380,17 @@
                         <option value="wobble">Wobble</option>
                     </select>
                 </div>
-
+                
                 <div class="control-group">
                     <label for="animationSpeed">Animation Speed: <span id="speedValue">1x</span></label>
                     <input type="range" id="animationSpeed" min="0.5" max="3" step="0.1" value="1">
                 </div>
-
+                
                 <div class="control-group">
                     <label for="emojiSize">Emoji Size: <span id="sizeValue">100px</span></label>
                     <input type="range" id="emojiSize" min="20" max="200" step="5" value="100">
                 </div>
-
+                
                 <div class="control-group">
                     <label>Background Color:</label>
                     <div class="color-picker">
@@ -496,14 +401,14 @@
                         </label>
                     </div>
                 </div>
-
+                
                 <div class="control-group">
                     <label for="customText">Add Text (optional):</label>
                     <input type="text" id="customText" placeholder="Add text below emoji">
                     <label for="textColor">Text Color:</label>
                     <input type="color" id="textColor" value="#000000">
                 </div>
-
+                
                 <button id="previewBtn">Preview Animation</button>
             </div>
         </div>
@@ -548,7 +453,6 @@
                     emojiOption.className = 'emoji-option';
                     emojiOption.textContent = emoji;
                     emojiOption.addEventListener('click', function() {
-                        // Select this emoji
                         document.querySelectorAll('.emoji-option').forEach(opt => {
                             opt.classList.remove('selected');
                         });
@@ -559,22 +463,18 @@
                     emojiGrid.appendChild(emojiOption);
                 });
                 
-                // Select first emoji by default
                 if (emojiGrid.firstChild) {
                     emojiGrid.firstChild.classList.add('selected');
                 }
             }
             
-            // Initialize the app
             function init() {
                 populateEmojiGrid();
                 setupEventListeners();
                 updatePreview();
             }
             
-            // Set up all event listeners
             function setupEventListeners() {
-                // Input changes
                 emojiInput.addEventListener('input', updatePreview);
                 animationType.addEventListener('change', updatePreview);
                 
@@ -585,26 +485,20 @@
                 
                 emojiSize.addEventListener('input', function() {
                     sizeValue.textContent = this.value + 'px';
-                    emojiPreview.style.fontSize = this.value + 'px';
                     updatePreview();
                 });
                 
                 bgColor.addEventListener('input', updatePreview);
-                transparentBg.addEventListener('change', function() {
-                    updatePreview();
-                });
-                
+                transparentBg.addEventListener('change', updatePreview);
                 customText.addEventListener('input', updatePreview);
                 textColor.addEventListener('input', updatePreview);
                 
-                // Buttons
                 previewBtn.addEventListener('click', updatePreview);
                 copyBtn.addEventListener('click', handleCopy);
                 downloadBtn.addEventListener('click', handleDownload);
                 shareBtn.addEventListener('click', handleShare);
             }
             
-            // Update the animation preview
             function updatePreview() {
                 const emoji = emojiInput.value || '😊';
                 const type = animationType.value;
@@ -617,65 +511,44 @@
                 emojiPreview.textContent = emoji;
                 emojiPreview.style.fontSize = size;
                 
-                // Clear previous animation
                 emojiPreview.style.animation = 'none';
                 animationPreview.style.background = bg;
                 
-                // Add new animation
                 setTimeout(() => {
-                    let animation = '';
-                    
+                    let animationName = type === 'spin' ? 'spin-emoji' : type;
+                    let duration;
                     switch(type) {
-                        case 'bounce':
-                            animation = `bounce ${1/speed}s infinite alternate`;
-                            break;
-                        case 'spin':
-                            animation = `spin-emoji ${2/speed}s linear infinite`;
-                            break;
-                        case 'pulse':
-                            animation = `pulse ${1.5/speed}s ease infinite`;
-                            break;
-                        case 'shake':
-                            animation = `shake ${0.5/speed}s ease infinite`;
-                            break;
-                        case 'float':
-                            animation = `float ${2/speed}s ease-in-out infinite`;
-                            break;
-                        case 'rainbow':
-                            animation = `rainbow ${3/speed}s linear infinite`;
-                            break;
-                        case 'heartbeat':
-                            animation = `heartbeat ${1.5/speed}s ease infinite`;
-                            break;
-                        case 'wobble':
-                            animation = `wobble ${1/speed}s ease infinite`;
-                            break;
+                        case 'spin': duration = 2 / speed; break;
+                        case 'pulse': duration = 1.5 / speed; break;
+                        case 'shake': duration = 0.5 / speed; break;
+                        case 'float': duration = 2 / speed; break;
+                        case 'rainbow': duration = 3 / speed; break;
+                        case 'heartbeat': duration = 1.5 / speed; break;
+                        default: duration = 1 / speed;
                     }
-                    
-                    emojiPreview.style.animation = animation;
-                    
-                    // Add text if provided
-                    if (text) {
-                        let textElement = document.getElementById('previewText');
-                        if (!textElement) {
-                            textElement = document.createElement('div');
-                            textElement.id = 'previewText';
-                            animationPreview.appendChild(textElement);
-                        }
-                        textElement.textContent = text;
-                        textElement.style.color = tColor;
-                        textElement.style.marginTop = '15px';
-                        textElement.style.fontSize = (parseInt(size)/3) + 'px';
-                    } else {
-                        const textElement = document.getElementById('previewText');
-                        if (textElement) {
-                            textElement.remove();
-                        }
+                    emojiPreview.style.animation = `${animationName} ${duration}s infinite linear`;
+                    if (type === 'bounce' || type === 'float') {
+                        emojiPreview.style.animationIterationCount = 'infinite';
+                        emojiPreview.style.animationDirection = 'alternate';
                     }
                 }, 10);
+                
+                let textElement = document.getElementById('previewText');
+                if (text) {
+                    if (!textElement) {
+                        textElement = document.createElement('div');
+                        textElement.id = 'previewText';
+                        animationPreview.appendChild(textElement);
+                    }
+                    textElement.textContent = text;
+                    textElement.style.color = tColor;
+                    textElement.style.marginTop = '15px';
+                    textElement.style.fontSize = (parseInt(size) / 3.5) + 'px';
+                } else if (textElement) {
+                    textElement.remove();
+                }
             }
             
-            // Generate GIF
             function generateGIF() {
                 return new Promise((resolve, reject) => {
                     const emoji = emojiInput.value || '😊';
@@ -685,15 +558,20 @@
                     const bg = transparentBg.checked ? 'rgba(0,0,0,0)' : bgColor.value;
                     const text = customText.value;
                     const tColor = textColor.value;
+
+                    // Reject if running on file:// protocol as worker will fail
+                    if (window.location.protocol === 'file:') {
+                        reject(new Error("GIF generation is not supported on local 'file://' protocol. Please use a local server."));
+                        return;
+                    }
                     
-                    // Create canvas for GIF frames
                     const canvas = document.createElement('canvas');
                     const ctx = canvas.getContext('2d');
-                    const gifSize = Math.min(size * 2, 400); // Limit maximum size for performance
+                    const gifSize = Math.max(150, size * 1.5);
+                    const textHeight = text ? (size / 2.5) : 0;
                     canvas.width = gifSize;
-                    canvas.height = gifSize + (text ? size/2 : 0);
+                    canvas.height = gifSize + textHeight;
                     
-                    // Create GIF
                     const gif = new GIF({
                         workers: 2,
                         quality: 10,
@@ -703,102 +581,63 @@
                         workerScript: 'https://cdnjs.cloudflare.com/ajax/libs/gif.js/0.2.0/gif.worker.js'
                     });
                     
-                    // Determine frame count based on animation type
                     const frameCount = 30;
-                    
-                    // Generate frames
+                    const duration = 1000 / speed;
+
                     for (let i = 0; i < frameCount; i++) {
                         const progress = i / frameCount;
                         ctx.fillStyle = bg;
                         ctx.fillRect(0, 0, canvas.width, canvas.height);
                         
-                        // Calculate current animation state
-                        let scale = 1;
-                        let rotation = 0;
-                        let yOffset = 0;
-                        let xOffset = 0;
-                        let currentColor = '#000000';
-                        
+                        let scale = 1, rotation = 0, yOffset = 0, xOffset = 0;
+                        let currentEmojiColor = '#000000'; // Default, used for rainbow
+
                         switch(type) {
-                            case 'bounce':
-                                yOffset = -Math.abs(Math.sin(progress * Math.PI * 2 * speed)) * 20;
-                                break;
-                            case 'spin':
-                                rotation = progress * 360 * speed;
-                                break;
-                            case 'pulse':
-                                scale = 1 + Math.sin(progress * Math.PI * 2 * speed) * 0.2;
-                                break;
-                            case 'shake':
-                                xOffset = Math.sin(progress * Math.PI * 8 * speed) * 10;
-                                break;
-                            case 'float':
-                                yOffset = -Math.sin(progress * Math.PI * 2 * speed) * 15;
-                                break;
-                            case 'rainbow':
-                                const hue = (progress * 360 * speed) % 360;
-                                currentColor = `hsl(${hue}, 100%, 50%)`;
-                                break;
-                            case 'heartbeat':
-                                if (progress % 0.25 < 0.125) {
-                                    scale = 1.1;
-                                } else {
-                                    scale = 1;
-                                }
-                                break;
-                            case 'wobble':
-                                rotation = Math.sin(progress * Math.PI * 4 * speed) * 5;
-                                break;
+                            case 'bounce': yOffset = -Math.sin(progress * Math.PI) * 20; break;
+                            case 'spin': rotation = progress * 360; break;
+                            case 'pulse': scale = 1 + Math.sin(progress * Math.PI * 2) * 0.2; break;
+                            case 'shake': xOffset = Math.sin(progress * Math.PI * 8) * 10; break;
+                            case 'float': yOffset = -Math.sin(progress * Math.PI * 2) * 15; break;
+                            case 'rainbow': currentEmojiColor = `hsl(${(progress * 360)}, 100%, 50%)`; break;
+                            case 'heartbeat': scale = 1 + Math.abs(Math.sin(progress * Math.PI * 2)) * 0.1; break;
+                            case 'wobble': rotation = Math.sin(progress * Math.PI * 4) * 5; break;
                         }
                         
-                        // Draw emoji
                         ctx.save();
-                        ctx.translate(canvas.width/2, canvas.height/2 - (text ? size/4 : 0));
+                        ctx.translate(canvas.width / 2, gifSize / 2);
                         ctx.scale(scale, scale);
-                        ctx.rotate(rotation * Math.PI/180);
+                        ctx.rotate(rotation * Math.PI / 180);
                         ctx.font = `${size}px Arial`;
                         ctx.textAlign = 'center';
                         ctx.textBaseline = 'middle';
-                        ctx.fillStyle = currentColor;
+                        if(type === 'rainbow') ctx.fillStyle = currentEmojiColor;
                         ctx.fillText(emoji, xOffset, yOffset);
                         ctx.restore();
                         
-                        // Draw text if provided
                         if (text) {
-                            ctx.font = `${size/3}px Arial`;
+                            ctx.font = `${size / 3.5}px Arial`;
                             ctx.textAlign = 'center';
                             ctx.textBaseline = 'top';
                             ctx.fillStyle = tColor;
-                            ctx.fillText(text, canvas.width/2, canvas.height/2 + size/2);
+                            ctx.fillText(text, canvas.width / 2, gifSize);
                         }
                         
-                        // Add frame to GIF
-                        gif.addFrame(canvas, {delay: 1000/(frameCount*speed), copy: true});
+                        gif.addFrame(canvas, { delay: duration / frameCount, copy: true });
                     }
                     
-                    // Render GIF
-                    gif.on('finished', function(blob) {
-                        resolve(blob);
-                    });
-                    
-                    gif.on('abort', function() {
-                        reject(new Error('GIF generation aborted'));
-                    });
-                    
+                    gif.on('finished', (blob) => resolve(blob));
+                    gif.on('abort', () => reject(new Error('GIF generation aborted.')));
                     gif.render();
                 });
             }
-            
-            // Show loading state on button
+
             function showLoading(button) {
                 button.disabled = true;
                 button.classList.add('loading');
-                const originalText = button.textContent;
-                button.dataset.originalText = originalText;
+                button.dataset.originalText = button.textContent;
                 button.textContent = "Creating...";
             }
-            
-            // Hide loading state on button
+
             function hideLoading(button) {
                 button.disabled = false;
                 button.classList.remove('loading');
@@ -806,84 +645,67 @@
                     button.textContent = button.dataset.originalText;
                 }
             }
-            
-            // Handle copy to clipboard
+
             async function handleCopy() {
                 showLoading(copyBtn);
-                
                 try {
                     const blob = await generateGIF();
-                    
-                    if (navigator.clipboard && navigator.clipboard.write) {
-                        try {
-                            await navigator.clipboard.write([
-                                new ClipboardItem({
-                                    'image/gif': blob
-                                })
-                            ]);
-                            alert('GIF copied to clipboard! Paste it into any app that supports GIFs.');
-                        } catch (err) {
-                            console.error('Clipboard write failed:', err);
-                            await handleDownloadFallback(blob);
-                        }
-                    } else {
-                        await handleDownloadFallback(blob);
-                    }
+                    await navigator.clipboard.write([
+                        new ClipboardItem({ 'image/gif': blob })
+                    ]);
+                    alert('GIF copied to clipboard!');
                 } catch (error) {
-                    console.error('GIF generation failed:', error);
-                    alert('Failed to create GIF. Please try again.');
+                    console.error('Copy failed:', error);
+                    alert('Copying GIF failed. This feature works best on a secure (https) server. Trying to download instead.');
+                    // Fallback to download if copy fails
+                    try {
+                        const blob = await generateGIF();
+                        await handleDownloadFallback(blob);
+                    } catch (e) {
+                         alert('Could not create GIF. Error: ' + e.message);
+                    }
                 } finally {
                     hideLoading(copyBtn);
                 }
             }
-            
-            // Handle download
+
             async function handleDownload() {
                 showLoading(downloadBtn);
-                
                 try {
                     const blob = await generateGIF();
                     await handleDownloadFallback(blob);
                 } catch (error) {
-                    console.error('GIF generation failed:', error);
-                    alert('Failed to create GIF. Please try again.');
+                    console.error('Download failed:', error);
+                    alert('Could not create GIF. Error: ' + error.message);
                 } finally {
                     hideLoading(downloadBtn);
                 }
             }
-            
-            // Handle share
+
             async function handleShare() {
                 showLoading(shareBtn);
-                
                 try {
                     const blob = await generateGIF();
-                    
-                    if (navigator.share) {
-                        try {
-                            const file = new File([blob], 'animated-emoji.gif', { type: 'image/gif' });
-                            await navigator.share({
-                                title: 'My Animated Emoji',
-                                text: 'Check out this animated emoji I created!',
-                                files: [file]
-                            });
-                        } catch (shareError) {
-                            console.log('Sharing failed, falling back to download:', shareError);
-                            await handleDownloadFallback(blob);
-                        }
+                    const file = new File([blob], 'animated-emoji.gif', { type: 'image/gif' });
+                    if (navigator.share && navigator.canShare({ files: [file] })) {
+                        await navigator.share({
+                            title: 'My Animated Emoji',
+                            text: 'Check out this animated emoji I created!',
+                            files: [file]
+                        });
                     } else {
+                        alert('Share API not supported in your browser. Trying to download instead.');
                         await handleDownloadFallback(blob);
                     }
                 } catch (error) {
-                    console.error('GIF generation failed:', error);
-                    alert('Failed to create GIF. Please try again.');
+                    console.error('Share failed:', error);
+                     alert('Could not create GIF for sharing. Error: ' + error.message);
                 } finally {
                     hideLoading(shareBtn);
                 }
             }
-            
-            // Fallback download handler
-            async function handleDownloadFallback(blob) {
+
+            function handleDownloadFallback(blob) {
                 return new Promise((resolve) => {
                     const url = URL.createObjectURL(blob);
                     const a = document.createElement('a');
@@ -892,7 +714,6 @@
                     document.body.appendChild(a);
                     a.click();
                     
-                    // Clean up
                     setTimeout(() => {
                         document.body.removeChild(a);
                         URL.revokeObjectURL(url);
@@ -901,10 +722,8 @@
                 });
             }
             
-            // Initialize the app
             init();
         });
     </script>
 </body>
-
 </html>
